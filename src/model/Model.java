@@ -86,6 +86,32 @@ public class Model {
     }
 
     public boolean isWinner(int x, int y){
+        int countRow = 0;
+        int countCol = 0;
+        int countLDiag = 0;
+        int countRDiag = 0;
+        char symbol;
+        if(getPlayerId() %2 != 0){
+            symbol = 'X';
+        }else{
+            symbol= '0';
+        }
+
+        for( int i=0; i<board.length; i++){
+            if(board[x][i] == symbol)
+                countRow++;
+            if(board[i][y] == symbol)
+                countCol++;
+            if(board[i][i] == symbol)
+                countRow++;
+            if(board[board.length-1-i][i] == symbol)
+                countLDiag++;
+        }
+
+        if(countCol == board.length || countRow == board.length ||
+                countLDiag == board.length || countRDiag == board.length)
+            return true;
+
         return false;
     }
 }
