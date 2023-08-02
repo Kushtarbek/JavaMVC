@@ -1,6 +1,6 @@
 package model;
 
-import javax.swing.text.View;
+import view.View;
 
 public class Model {
     private View v;
